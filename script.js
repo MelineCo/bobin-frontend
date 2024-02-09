@@ -24,8 +24,9 @@ document.querySelector("#btn-add").addEventListener('click', function () {
             <label class='label' for="author">AUTEUR(E) :</label><br/>
             <input type="text" id="author" name="author" required/>
         </div>
-        <div >
-            <input class="submit-btn" type="submit" value="SOUMETTRE LA CITATION" />
+        <div class="submit-btns">
+            <input class="submit-btn submit" type="submit" value="SOUMETTRE LA CITATION" />
+            <input class="submit-btn cancel" type="submit" value="ANNULER" />
         </div>
     </form>
     `

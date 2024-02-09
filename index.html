@@ -9,21 +9,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gelasio:wght@400;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Générateur de citations</title>
 </head>
 
 <body>
-    <div>
-        <button id="btn-shuffle" class="btn"><img src='/frontend/images/infini.png' /></button>
-        <button id="btn-add" class="btn"><img src='/frontend/images/ajouter-un-bouton.png' /></button>
+    <div id="container">
+        <div id="buttons">
+            <button id="btn-shuffle" class="btn"><img src='/frontend/images/infini.png' /></button>
+            <button id="btn-add" class="btn"><img src='/frontend/images/ajouter-un-bouton.png' /></button>
+        </div>
+        <div id="quoteContainer">
+            <img src="/frontend/images/citation-de-gauche.png" id="quoteIcon" alt="quote" />
+            <p id="quote">L'écrin de la grâce, c'est l'instant.</p>
+            <p id="author">Marc Vella</p>
+        </div>
+        <div id="add-form"></div>
     </div>
-    <div id="quoteContainer">
-        <img src="/frontend/images/citation-de-gauche.png" id="quoteIcon" alt="quote" />
-        <p id="quote">L'écrin de la grâce, c'est l'instant.</p>
-        <p id="author">Marc Vella</p>
-    </div>
-    <div id="add-form"></div>
+
     <script src="script.js"></script>
 </body>
 
