@@ -1,5 +1,4 @@
 document.querySelector("#btn-shuffle").addEventListener('click', function () {
-
     const alea = Math.ceil(Math.random() * 26)
     console.log(alea)
 
@@ -18,18 +17,50 @@ document.querySelector("#btn-add").addEventListener('click', function () {
     <form action="" method="get" class="form">
         <div class="form-example">
             <label class='label' for="quote">CITATION :</label><br/>
-            <input type="text" id="quote" name="quote" required/>
+            <textarea id="quote" name="quote" rows="4" col="150">
+            </textarea>
         </div>
         <div class="form-example">
             <label class='label' for="author">AUTEUR(E) :</label><br/>
-            <input type="text" id="author" name="author" required/>
+            <input type="text" id="author" name="author" />
         </div>
         <div class="submit-btns">
-            <input class="submit-btn submit" type="submit" value="SOUMETTRE LA CITATION" />
-            <input class="submit-btn cancel" type="submit" value="ANNULER" />
+            <input id="submit-quote" class="submit-btn submit" type="submit" value="SOUMETTRE LA CITATION" />
+            <input id="cancel-quote" class="submit-btn cancel" type="submit" value="ANNULER" />
         </div>
     </form>
     `
+
+    addNewQuote()
 })
 
+
+function addNewQuote() {
+    document.querySelector('#submit-quote').addEventListener('click', function () {
+        const submittedQuote = {
+            quote: "testFetch",
+            author: "tesFetchAuthor"
+        }
+
+        fetch(`http://localhost:3000/quotes/new`,
+            {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                  },
+                body: JSON.stringify({
+                    quote: "testFetch",
+                    author: "tesFetchAuthor"
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.result) {
+                    console.log("quote submitted!")
+                    this.parentNode.parentNode.remove();
+                }
+            });
+    });
+}
 
