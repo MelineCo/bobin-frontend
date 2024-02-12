@@ -2,7 +2,7 @@
 const randomHistory = []
 document.querySelector("#btn-shuffle").addEventListener('click', function () {
     // Calcul du nombre aléatoire
-    fetch(`http://localhost:3000/quotes/size`, {
+    fetch(`https://bobin-backend.vercel.app/quotes/size`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
     }).then(response => response.json())
@@ -18,7 +18,7 @@ document.querySelector("#btn-shuffle").addEventListener('click', function () {
             randomHistory.push(alea)
 
             // Récupération de la citation correspondant au nombre aléatoire
-            fetch(`http://localhost:3000/quotes/${alea}`, {
+            fetch(`https://bobin-backend.vercel.app/${alea}`, {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' }
             }).then(response => response.json())
@@ -42,7 +42,7 @@ document.querySelector('#submit-quote').addEventListener('click', function () {
         author: document.querySelector('#auteur').value,
     }
 
-    fetch(`http://localhost:3000/quotes/new`,
+    fetch(`https://bobin-backend.vercel.app/quotes/new`,
         {
             method: 'POST',
             headers: {
