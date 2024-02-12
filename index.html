@@ -26,7 +26,18 @@
             <p id="quote">L'écrin de la grâce, c'est l'instant.</p>
             <p id="author">- Marc Vella</p>
         </div>
-        <div id="add-form" class="sous-container"></div>
+        <div id="add-form" class="sous-container">
+            <div class="form">
+                <label class='label' for="addedAuthor">AUTEUR(E) :</label><br />
+                <input id="auteur" class="input" type="text" />
+                <label class='label' for="addedQuote">CITATION :</label><br />
+                <textarea id="citation" name="addedQuote" rows="4" col="150"></textarea>
+                <div class="submit-btns">
+                    <button id="submit-quote" class="submit-btn submit">SOUMETTRE</button>
+                    <button id="cancel-quote" class="submit-btn cancel">ANNULER</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
