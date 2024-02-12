@@ -123,6 +123,7 @@ body {
     font-size: 0.7rem;
     letter-spacing: 2px;
     width: 130px;
+    text-decoration: none;
 }
 
 .cancel{
