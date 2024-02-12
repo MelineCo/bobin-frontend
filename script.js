@@ -1,15 +1,31 @@
 // Afficher une citation aléatoire
+const randomHistory = []
 document.querySelector("#btn-shuffle").addEventListener('click', function () {
-    const alea = Math.ceil(Math.random() * 26)
-    console.log(alea)
-
-    fetch(`http://localhost:3000/quotes/${alea}`, {
+    // Calcul du nombre aléatoire
+    fetch(`http://localhost:3000/quotes/size`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
     }).then(response => response.json())
         .then(data => {
-            document.querySelector("#quote").textContent = data.quote.quote;
-            document.querySelector("#author").textContent = `- ${data.quote.author}`;
+            const collectionSize = data.size;
+            let alea = Math.ceil(Math.random() * collectionSize)
+            if (randomHistory.length >= 2) {
+                // si le nombre aléatoire est égal à l'un des trois derniers tirages, on "relance" l'aléatoire
+                if (randomHistory[randomHistory.length - 1] === alea || randomHistory[randomHistory.length - 2] === alea || randomHistory[randomHistory.length - 3] === alea) {
+                    alea = Math.ceil(Math.random() * collectionSize)
+                }
+            }
+            randomHistory.push(alea)
+
+            // Récupération de la citation correspondant au nombre aléatoire
+            fetch(`http://localhost:3000/quotes/${alea}`, {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json' }
+            }).then(response => response.json())
+                .then(data => {
+                    document.querySelector("#quote").textContent = data.quote.quote;
+                    document.querySelector("#author").textContent = `- ${data.quote.author}`;
+                })
         })
 })
 
@@ -48,3 +64,10 @@ document.querySelector('#submit-quote').addEventListener('click', function () {
     document.querySelector("#add-form").style.display = "none"
 });
 
+
+// Annuler l'ajout de citation
+document.querySelector('#cancel-quote').addEventListener('click', function () {
+    document.querySelector('#citation').value = "";
+    document.querySelector('#auteur').value = "";
+    document.querySelector("#add-form").style.display = "none"
+});
