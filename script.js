@@ -18,7 +18,7 @@ document.querySelector("#btn-shuffle").addEventListener('click', function () {
             randomHistory.push(alea)
 
             // Récupération de la citation correspondant au nombre aléatoire
-            fetch(`https://bobin-backend.vercel.app/${alea}`, {
+            fetch(`https://bobin-backend.vercel.app/quotes/${alea}`, {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' }
             }).then(response => response.json())
