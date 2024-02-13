@@ -14,7 +14,7 @@ body {
     padding: 3rem;
 }
 
-@media (max-width: 600px) {
+@media only screen and (max-width: 480px) {
     #container {
         width: unset; /* plus besoin de ça en mobile, donc on "unset" */
         max-width: none; /* same */
@@ -22,6 +22,13 @@ body {
     }
     .sous-container{
         padding: 1rem;
+    }
+    .submit-btns{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
     }
 }
 
@@ -100,7 +107,7 @@ body {
 }
 
 .form{
-    width: 100%;
+    width: calc(100% - 2rem);
     font-size: 0.7rem;
     letter-spacing: 2px;
     font-family: Tahoma, serif;
